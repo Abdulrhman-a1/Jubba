@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="application-name" content="جُعبه" />
+  <meta name="author" content="Abdulrhman Albusaad" />
+  <meta name="description" lang="ar"
+    content="تطبيق فنتك يسهل عليك متابعة مصاريفك اليومية وترتيب ميزانيتك بطريقتك الخاصة وبكل سهولة." />
+  <meta name="description" lang="en"
+    content="A fintech app that helps you track your spending and manage your personal budget with ease." />
+  <meta property="og:title" content="جُعبه | Fintech App" />
+  <meta property="og:description" content="تابع مصاريفك ورتب ميزانيتك بطريقتك – كل هذا في تطبيق جُعبه." />
+  <meta name="theme-color" content="#4285F4" />
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="جُعبه">
+  <link rel="apple-touch-icon" href="icons/coin-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="favicon.png" />
+
+  <!-- Money Bag and Coins SVG Favicon -->
+  <svg id="coin-favicon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"
+    style="display:none;">
+    <defs>
+      <linearGradient id="bagGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#4285F4;" />
+        <stop offset="100%" style="stop-color:#2962FF;" />
+      </linearGradient>
+      <linearGradient id="bagFillGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#E3F2FD;" />
+        <stop offset="100%" style="stop-color:#BBDEFB;" />
+      </linearGradient>
+      <linearGradient id="coinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#E3F2FD;" />
+        <stop offset="100%" style="stop-color:#BBDEFB;" />
+      </linearGradient>
+    </defs>
+
+    <!-- Coins stack -->
+    <g transform="translate(15, 32) scale(0.8)">
+      <!-- Bottom coin -->
+      <ellipse cx="0" cy="42" rx="12" ry="6" fill="#4285F4" />
+      <ellipse cx="0" cy="42" rx="10" ry="4" fill="#E3F2FD" />
+
+      <!-- Coin cylinder 1 -->
+      <rect x="-10" y="18" width="20" height="24" fill="#4285F4" />
+      <rect x="-8" y="18" width="16" height="24" fill="#E3F2FD" />
+
+      <!-- Coin top 1 -->
+      <ellipse cx="0" cy="18" rx="12" ry="6" fill="#4285F4" />
+      <ellipse cx="0" cy="18" rx="10" ry="4" fill="#E3F2FD" />
+
+      <!-- Coin cylinder 2 -->
+      <rect x="-10" y="-6" width="20" height="24" fill="#4285F4" />
+      <rect x="-8" y="-6" width="16" height="24" fill="#E3F2FD" />
+
+      <!-- Coin top 2 -->
+      <ellipse cx="0" cy="-6" rx="12" ry="6" fill="#4285F4" />
+      <ellipse cx="0" cy="-6" rx="10" ry="4" fill="#E3F2FD" />
+    </g>
+
+    <!-- Money Bag -->
+    <g transform="translate(40, 32) scale(0.9)">
+      <!-- Bag body -->
+      <path d="M0,0 C15,0 15,30 0,30 C-15,30 -15,0 0,0 Z" fill="url(#bagGradient)" stroke="#4285F4" stroke-width="2" />
+      <path d="M0,2 C13,2 13,28 0,28 C-13,28 -13,2 0,2 Z" fill="url(#bagFillGradient)" />
+
+      <!-- Bag tie -->
+      <path d="M-8,-5 C-5,-8 5,-8 8,-5 C5,0 -5,0 -8,-5 Z" fill="#4285F4" stroke="#4285F4" stroke-width="1" />
+      <path d="M-6,-4 C-3,-6 3,-6 6,-4 C3,-1 -3,-1 -6,-4 Z" fill="#BBDEFB" />
+
+      <!-- Bag strings -->
+      <path d="M-8,-5 C-12,-10 -12,-15 -5,-15" fill="none" stroke="#4285F4" stroke-width="2" />
+      <path d="M8,-5 C12,-10 12,-15 5,-15" fill="none" stroke="#4285F4" stroke-width="2" />
+
+      <!-- Dollar sign -->
+      <text x="0" y="12" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#4285F4"
+        text-anchor="middle">$</text>
+    </g>
+  </svg>
+
+  <title>جُعبه</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // Generate favicon from SVG
+    window.addEventListener('load', function () {
+      // Create a dynamic favicon from the SVG
+      const svgElement = document.getElementById('coin-favicon');
+      const svgData = new XMLSerializer().serializeToString(svgElement);
+      const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+      const svgUrl = URL.createObjectURL(svgBlob);
+
+      // Create favicon link
+      const favicon = document.createElement('link');
+      favicon.rel = 'icon';
+      favicon.href = svgUrl;
+      favicon.type = 'image/svg+xml';
+      document.head.appendChild(favicon);
+    });
+  </script>
+</head>
+
+<body>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+
+</html>
